@@ -16,3 +16,34 @@ if (markBMI > johnBMI) {
 } else {
 	console.log(`John's BMI (${johnBMI}) is higher than Mark's (${markBMI})`);
 }
+
+/* Coding Challenge 3 */
+
+// const dolphinsScore = (96 + 108 + 89) / 3;
+// const koalasScore = (88 + 91 + 110) / 3;
+
+// console.log(dolphinsScore, koalasScore);
+
+// if (dolphinsScore > koalasScore) {
+// 	console.log("Dolphins win the trophy 🏆");
+// } else if (koalasScore > dolphinsScore) {
+// 	console.log("Koalas win the trophy 🏆");
+// } else if (koalasScore === dolphinsScore) {
+// 	console.log("Both win the trophy");
+// }
+
+// Bonus 1
+const dolphinsScore = (97 + 112 + 80) / 3;
+const koalasScore = (109 + 95 + 50) / 3;
+
+console.log(dolphinsScore, koalasScore);
+
+if (dolphinsScore > koalasScore && dolphinsScore >= 100) {
+	console.log("Dolphins win the trophy 🏆");
+} else if (koalasScore > dolphinsScore && koalasScore >= 100) {
+	console.log("Koalas win the trophy 🏆");
+} else if (koalasScore === dolphinsScore && koalasScore >= 100) {
+	console.log("Both win the trophy");
+} else {
+	console.log("No one wins the trophy 😭");
+}
