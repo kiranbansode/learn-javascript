@@ -111,30 +111,50 @@ console.log(lastName); */
 // const averageAge = (ageKiran + ageMeera) / 2;
 // console.log(ageKiran, ageMeera, averageAge);
 
-const firstName = "Kiran";
-const job = "teacher";
-const birthYear = 1995;
-const year = 2037;
+// const firstName = "Kiran";
+// const job = "teacher";
+// const birthYear = 1995;
+// const year = 2037;
 
-const kiran =
-	"I'm " + firstName + ", a " + (year - birthYear) + " years old " + job + "!";
+// const kiran =
+// 	"I'm " + firstName + ", a " + (year - birthYear) + " years old " + job + "!";
 
-console.log(kiran);
+// console.log(kiran);
 
-// Template literals (Template strings)
-const kiranNew = `I'm ${firstName}, a ${year - birthYear} years old ${job}!`;
+// // Template literals (Template strings)
+// const kiranNew = `I'm ${firstName}, a ${year - birthYear} years old ${job}!`;
 
-console.log(kiranNew);
+// console.log(kiranNew);
 
-// Template literals can be used to create regular strings
-console.log(`Just a regular string...`);
+// // Template literals can be used to create regular strings
+// console.log(`Just a regular string...`);
 
-// using Escape Characters
-console.log("String with \n\
-multiple \n\
-lines");
+// // using Escape Characters
+// console.log("String with \n\
+// multiple \n\
+// lines");
 
-// using Template Literals
-console.log(`String 
-multiple
-lines`);
+// // using Template Literals
+// console.log(`String
+// multiple
+// lines`);
+
+const age = 15;
+
+// control structure
+if (age >= 18) {
+	console.log(`Sarah can start driving license 🚗`);
+} else {
+	const yearsLeft = 18 - age;
+	console.log(`Sarah is too young. Wait another ${yearsLeft} years :)`);
+}
+
+const birthYear = 1991;
+let century;
+if (birthYear <= 2000) {
+	century = 20;
+} else {
+	century = 21;
+}
+
+console.log(century);
