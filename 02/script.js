@@ -33,7 +33,7 @@ console.log(myFutureJob); */
     Multi Line Comment
 */
 
-let javascriptIsFun = true;
+/* let javascriptIsFun = true;
 console.log(javascriptIsFun);
 
 //console.log(typeof true);
@@ -52,3 +52,17 @@ year = 1991;
 console.log(typeof year);
 
 console.log(typeof null);
+ */
+
+let age = 30;
+age = 31;
+
+const birthYear = 1991;
+// birthYear = 1998;
+// const job;
+
+var job = "programmer";
+job = "teacher";
+
+lastName = "Bansode";
+console.log(lastName);
