@@ -223,41 +223,57 @@
 // 	`${kiran2.firstName} has ${kiran2.friends.length} friends, and his best friend is called ${kiran.friends[0]}`
 // );
 
-const kiran = {
-	firstName: "Kiran",
-	lastName: "Bansode",
-	birthYear: 1995,
-	job: "teacher",
-	friends: ["Meera", "Heera", "Jeera"],
-	hasDriversLicense: true,
+// const kiran = {
+// 	firstName: "Kiran",
+// 	lastName: "Bansode",
+// 	birthYear: 1995,
+// 	job: "teacher",
+// 	friends: ["Meera", "Heera", "Jeera"],
+// 	hasDriversLicense: true,
 
-	// calcAge: function (birthYear) {
-	// 	return 2022 - birthYear;
-	// },
+// 	// calcAge: function (birthYear) {
+// 	// 	return 2022 - birthYear;
+// 	// },
 
-	// calcAge: function () {
-	// 	console.log(this);
-	// 	return 2022 - this.birthYear;
-	// },
+// 	// calcAge: function () {
+// 	// 	console.log(this);
+// 	// 	return 2022 - this.birthYear;
+// 	// },
 
-	calcAge: function () {
-		this.age = 2022 - this.birthYear;
-		return this.age;
-	},
+// 	calcAge: function () {
+// 		this.age = 2022 - this.birthYear;
+// 		return this.age;
+// 	},
 
-	// Challenge
-	getSummary: function () {
-		return `${
-			this.firstName
-		} is a ${this.calcAge()} years old teacher, and he has ${
-			this.hasDriversLicense ? "a" : "not have a"
-		} drivers license `;
-	},
-};
+// 	// Challenge
+// 	getSummary: function () {
+// 		return `${
+// 			this.firstName
+// 		} is a ${this.calcAge()} years old teacher, and he has ${
+// 			this.hasDriversLicense ? "a" : "not have a"
+// 		} drivers license `;
+// 	},
+// };
 
-// console.log(kiran.calcAge(1995));
-// console.log(kiran["calcAge"](1995));
-console.log(kiran.calcAge());
-console.log(kiran.age);
+// // console.log(kiran.calcAge(1995));
+// // console.log(kiran["calcAge"](1995));
+// console.log(kiran.calcAge());
+// console.log(kiran.age);
 
-console.log(kiran.getSummary());
+// console.log(kiran.getSummary());
+
+// console.log("Lifting weights repetition 1 🏋🏻‍♂️");
+// console.log("Lifting weights repetition 2 🏋🏻‍♂️");
+// console.log("Lifting weights repetition 3 🏋🏻‍♂️");
+// console.log("Lifting weights repetition 4 🏋🏻‍♂️");
+// console.log("Lifting weights repetition 5 🏋🏻‍♂️");
+// console.log("Lifting weights repetition 6 🏋🏻‍♂️");
+// console.log("Lifting weights repetition 7 🏋🏻‍♂️");
+// console.log("Lifting weights repetition 8 🏋🏻‍♂️");
+// console.log("Lifting weights repetition 9 🏋🏻‍♂️");
+// console.log("Lifting weights repetition 10 🏋🏻‍♂️");
+
+// for loop keeps running while condition is TRUE
+for (let rep = 1; rep <= 30; rep++) {
+	console.log(`Lifting weights repetition ${rep} 🏋🏻‍♂️`);
+}
