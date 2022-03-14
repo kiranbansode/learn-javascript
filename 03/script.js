@@ -278,46 +278,67 @@
 // 	console.log(`Lifting weights repetition ${rep} 🏋🏻‍♂️`);
 // }
 
+// const kiran = [
+// 	"Kiran",
+// 	"Bansode",
+// 	2022 - 1995,
+// 	"teacher",
+// 	["Meera", "Heera", "Jeera"],
+// ];
+
+// const types = [];
+
+// for (let i = 0; i < kiran.length; i++) {
+// 	console.log(kiran[i], typeof kiran[i]);
+
+// 	// Filling types array
+// 	// types[i] = typeof kiran[i];
+// 	types.push(typeof kiran[i]);
+// }
+// console.log(types);
+
+// const years = [1991, 2007, 1969, 2020];
+// const ages = [];
+
+// for (let i = 0; i < years.length; i++) {
+// 	ages.push(2022 - years[i]);
+// }
+
+// console.log(ages);
+
+// // continue
+// console.log("Only Strings");
+// for (let i = 0; i < kiran.length; i++) {
+// 	if (typeof kiran[i] !== "string") continue;
+
+// 	console.log(kiran[i], typeof kiran[i]);
+// }
+
+// // break
+// console.log("Break with Number");
+// for (let i = 0; i < kiran.length; i++) {
+// 	if (typeof kiran[i] == "number") break;
+
+// 	console.log(kiran[i], typeof kiran[i]);
+// }
+
 const kiran = [
 	"Kiran",
 	"Bansode",
 	2022 - 1995,
 	"teacher",
 	["Meera", "Heera", "Jeera"],
+	true,
 ];
 
-const types = [];
-
-for (let i = 0; i < kiran.length; i++) {
-	console.log(kiran[i], typeof kiran[i]);
-
-	// Filling types array
-	// types[i] = typeof kiran[i];
-	types.push(typeof kiran[i]);
-}
-console.log(types);
-
-const years = [1991, 2007, 1969, 2020];
-const ages = [];
-
-for (let i = 0; i < years.length; i++) {
-	ages.push(2022 - years[i]);
+for (let i = kiran.length - 1; i >= 0; i--) {
+	console.log(i, kiran[i]);
 }
 
-console.log(ages);
+for (let exercise = 1; exercise < 4; exercise++) {
+	console.log(`Starting Exercise : ${exercise}`);
 
-// continue
-console.log("Only Strings");
-for (let i = 0; i < kiran.length; i++) {
-	if (typeof kiran[i] !== "string") continue;
-
-	console.log(kiran[i], typeof kiran[i]);
-}
-
-// break
-console.log("Break with Number");
-for (let i = 0; i < kiran.length; i++) {
-	if (typeof kiran[i] == "number") break;
-
-	console.log(kiran[i], typeof kiran[i]);
+	for (let rep = 1; rep < 6; rep++) {
+		console.log(`Lifting weight repetition ${rep} 🏋🏻‍♂️`);
+	}
 }
