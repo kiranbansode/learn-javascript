@@ -61,16 +61,38 @@
 // console.log(yearsUntilRetirement(1995, "Kiran"));
 // console.log(yearsUntilRetirement(1989, "Mahi"));
 
-function cutFruitPieces(fruit) {
-	return fruit * 3;
-}
+// function cutFruitPieces(fruit) {
+// 	return fruit * 3;
+// }
 
-function fruitProcessor(apples, oranges) {
-	const applePieces = cutFruitPieces(apples);
-	const orangePieces = cutFruitPieces(oranges);
+// function fruitProcessor(apples, oranges) {
+// 	const applePieces = cutFruitPieces(apples);
+// 	const orangePieces = cutFruitPieces(oranges);
 
-	const juice = `Juice with ${applePieces} pieces of apples and ${orangePieces} pieces of oranges.`;
-	return juice;
-}
+// 	const juice = `Juice with ${applePieces} pieces of apples and ${orangePieces} pieces of oranges.`;
+// 	return juice;
+// }
 
-console.log(fruitProcessor(2, 3));
+// console.log(fruitProcessor(2, 3));
+
+const calcAge = function (birthYear) {
+	return 2022 - birthYear;
+};
+
+const yearsUntilRetirement = function (birthYear, firstName) {
+	const age = calcAge(birthYear);
+	const retirement = 65 - age;
+
+	if (retirement > 0) {
+		console.log(`${firstName} retires in ${retirement} years`);
+		return retirement;
+	} else {
+		console.log(`${firstName} has already retired 🏖️`);
+		return -1;
+	}
+
+	// return `${firstName} retires in ${retirement} years`;
+};
+
+console.log(yearsUntilRetirement(1995, "Kiran"));
+console.log(yearsUntilRetirement(1949, "Mahi"));
