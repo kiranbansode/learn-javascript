@@ -274,6 +274,50 @@
 // console.log("Lifting weights repetition 10 🏋🏻‍♂️");
 
 // for loop keeps running while condition is TRUE
-for (let rep = 1; rep <= 30; rep++) {
-	console.log(`Lifting weights repetition ${rep} 🏋🏻‍♂️`);
+// for (let rep = 1; rep <= 30; rep++) {
+// 	console.log(`Lifting weights repetition ${rep} 🏋🏻‍♂️`);
+// }
+
+const kiran = [
+	"Kiran",
+	"Bansode",
+	2022 - 1995,
+	"teacher",
+	["Meera", "Heera", "Jeera"],
+];
+
+const types = [];
+
+for (let i = 0; i < kiran.length; i++) {
+	console.log(kiran[i], typeof kiran[i]);
+
+	// Filling types array
+	// types[i] = typeof kiran[i];
+	types.push(typeof kiran[i]);
+}
+console.log(types);
+
+const years = [1991, 2007, 1969, 2020];
+const ages = [];
+
+for (let i = 0; i < years.length; i++) {
+	ages.push(2022 - years[i]);
+}
+
+console.log(ages);
+
+// continue
+console.log("Only Strings");
+for (let i = 0; i < kiran.length; i++) {
+	if (typeof kiran[i] !== "string") continue;
+
+	console.log(kiran[i], typeof kiran[i]);
+}
+
+// break
+console.log("Break with Number");
+for (let i = 0; i < kiran.length; i++) {
+	if (typeof kiran[i] == "number") break;
+
+	console.log(kiran[i], typeof kiran[i]);
 }
