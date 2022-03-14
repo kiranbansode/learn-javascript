@@ -24,3 +24,23 @@ console.log("Game 1 :", checkWinner(dolphinsScore1, koalasScore1));
 
 // Game #2
 console.log("Game 2 :", checkWinner(dolphinsScore2, koalasScore2));
+
+/* --------------------------- Coding Challenge #2 -------------------------- */
+
+const calcTip = function (bill) {
+	return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+};
+
+const bills = [125, 555, 44];
+const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
+console.log(bills, tips);
+
+const calcTotal = (bill, tip) => bill + tip;
+
+const totals = [
+	calcTotal(bills[0], tips[0]),
+	calcTotal(bills[1], tips[1]),
+	calcTotal(bills[2], tips[2]),
+];
+
+console.log(totals);
