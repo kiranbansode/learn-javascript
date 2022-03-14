@@ -175,50 +175,89 @@
 // 	console.log("You have a friend called Meera");
 // }
 
+// const kiran = {
+// 	firstName: "Kiran",
+// 	lastName: "Bansode",
+// 	age: 2022 - 1995,
+// 	job: "teacher",
+// 	friends: ["Meera", "Heera", "Jeera"],
+// };
+
+// console.log(kiran);
+// // Dot Notation
+// console.log(kiran.lastName);
+
+// // Bracket Notation
+// console.log(kiran["lastName"]);
+
+// // Computer Property
+// const lastName = "Name";
+// console.log(kiran["first" + lastName]);
+// console.log(kiran["last" + lastName]);
+
+// const interestedIn = prompt(
+// 	"What do you want to know about Kiran ? Choose between firstName, lastName, age, job or friends"
+// );
+
+// if (kiran[interestedIn]) {
+// 	console.log(kiran[interestedIn]);
+// } else {
+// 	console.log(
+// 		"Wrong request! Choose between firstName, lastName, age, job or friends "
+// 	);
+// }
+
+// kiran.location = "India";
+// kiran["instagram"] = "_kiran.bansode_";
+// console.log(kiran);
+
+// // Challenge
+// // Kiran has 3 friends, and his best friend is called 'Meera'
+
+// const kiran2 = {
+// 	firstName: "Kiran",
+// 	friends: ["Meera", "Heera", "Jeera"],
+// };
+
+// console.log(
+// 	`${kiran2.firstName} has ${kiran2.friends.length} friends, and his best friend is called ${kiran.friends[0]}`
+// );
+
 const kiran = {
 	firstName: "Kiran",
 	lastName: "Bansode",
-	age: 2022 - 1995,
+	birthYear: 1995,
 	job: "teacher",
 	friends: ["Meera", "Heera", "Jeera"],
+	hasDriversLicense: true,
+
+	// calcAge: function (birthYear) {
+	// 	return 2022 - birthYear;
+	// },
+
+	// calcAge: function () {
+	// 	console.log(this);
+	// 	return 2022 - this.birthYear;
+	// },
+
+	calcAge: function () {
+		this.age = 2022 - this.birthYear;
+		return this.age;
+	},
+
+	// Challenge
+	getSummary: function () {
+		return `${
+			this.firstName
+		} is a ${this.calcAge()} years old teacher, and he has ${
+			this.hasDriversLicense ? "a" : "not have a"
+		} drivers license `;
+	},
 };
 
-console.log(kiran);
-// Dot Notation
-console.log(kiran.lastName);
+// console.log(kiran.calcAge(1995));
+// console.log(kiran["calcAge"](1995));
+console.log(kiran.calcAge());
+console.log(kiran.age);
 
-// Bracket Notation
-console.log(kiran["lastName"]);
-
-// Computer Property
-const lastName = "Name";
-console.log(kiran["first" + lastName]);
-console.log(kiran["last" + lastName]);
-
-const interestedIn = prompt(
-	"What do you want to know about Kiran ? Choose between firstName, lastName, age, job or friends"
-);
-
-if (kiran[interestedIn]) {
-	console.log(kiran[interestedIn]);
-} else {
-	console.log(
-		"Wrong request! Choose between firstName, lastName, age, job or friends "
-	);
-}
-
-kiran.location = "India";
-kiran["instagram"] = "_kiran.bansode_";
-console.log(kiran);
-
-// Challenge
-// Kiran has 3 friends, and his best friend is called 'Meera'
-
-const kiran2 = {
-	firstName: "Kiran",
-	friends: ["Meera", "Heera", "Jeera"],
-};
-
-console.log(
-	`${kiran2.firstName} has ${kiran2.friends.length} friends, and his best friend is called ${kiran.friends[0]}`
-);
+console.log(kiran.getSummary());
