@@ -1,7 +1,11 @@
 let country = "India";
 let continent = "Asia";
-let populationInMillion = "1300";
+let population = "1300";
+let isIsland = false;
+let language;
 
-console.log(country);
 console.log(continent);
-console.log(populationInMillion);
+console.log(typeof isIsland);
+console.log(typeof population);
+console.log(typeof country);
+console.log(typeof language);
