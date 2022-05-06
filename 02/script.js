@@ -96,17 +96,17 @@ console.log(lastName); */
 // const isFullAge = ageMeera >= 18;
 // console.log(now - 1991 > now - 2018);
 
-const now = 2037;
-const ageKiran = now - 1995;
-const ageMeera = now - 2018;
+// const now = 2037;
+// const ageKiran = now - 1995;
+// const ageMeera = now - 2018;
 
-console.log(now - 1991 > now - 2018);
+// console.log(now - 1991 > now - 2018);
 
-console.log(25 - 10 - 5);
+// console.log(25 - 10 - 5);
 
-let x, y;
-x = y = 25 - 10 - 5; // x = y = 10,x = 10
-console.log(x, y);
+// let x, y;
+// x = y = 25 - 10 - 5; // x = y = 10,x = 10
+// console.log(x, y);
 
-const averageAge = (ageKiran + ageMeera) / 2;
-console.log(ageKiran, ageMeera, averageAge);
+// const averageAge = (ageKiran + ageMeera) / 2;
+// console.log(ageKiran, ageMeera, averageAge);
