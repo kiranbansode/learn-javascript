@@ -110,3 +110,31 @@ console.log(lastName); */
 
 // const averageAge = (ageKiran + ageMeera) / 2;
 // console.log(ageKiran, ageMeera, averageAge);
+
+const firstName = "Kiran";
+const job = "teacher";
+const birthYear = 1995;
+const year = 2037;
+
+const kiran =
+	"I'm " + firstName + ", a " + (year - birthYear) + " years old " + job + "!";
+
+console.log(kiran);
+
+// Template literals (Template strings)
+const kiranNew = `I'm ${firstName}, a ${year - birthYear} years old ${job}!`;
+
+console.log(kiranNew);
+
+// Template literals can be used to create regular strings
+console.log(`Just a regular string...`);
+
+// using Escape Characters
+console.log("String with \n\
+multiple \n\
+lines");
+
+// using Template Literals
+console.log(`String 
+multiple
+lines`);
