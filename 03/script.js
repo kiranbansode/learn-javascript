@@ -75,24 +75,71 @@
 
 // console.log(fruitProcessor(2, 3));
 
+// const calcAge = function (birthYear) {
+// 	return 2022 - birthYear;
+// };
+
+// const yearsUntilRetirement = function (birthYear, firstName) {
+// 	const age = calcAge(birthYear);
+// 	const retirement = 65 - age;
+
+// 	if (retirement > 0) {
+// 		console.log(`${firstName} retires in ${retirement} years`);
+// 		return retirement;
+// 	} else {
+// 		console.log(`${firstName} has already retired 🏖️`);
+// 		return -1;
+// 	}
+
+// 	// return `${firstName} retires in ${retirement} years`;
+// };
+
+// console.log(yearsUntilRetirement(1995, "Kiran"));
+// console.log(yearsUntilRetirement(1949, "Mahi"));
+
+const friend1 = "Meera";
+const friend2 = "Heera";
+const friend3 = "Jeera";
+
+const friends = ["Meera", "Heera", "Jeera"];
+console.log(friends);
+
+const years = new Array(1991, 1994, 2008, 2020);
+
+console.log(friends[0]);
+console.log(friends[2]);
+
+console.log(friends.length);
+console.log(friends[friends.length - 1]);
+
+friends[2] = "Kabira";
+console.log(friends);
+// friends = ["Bob", "Alice"];
+
+const firstName = "Jonas";
+const kiran = [firstName, "Bansode", 2022 - 1995, "teacher", friends];
+console.log(kiran.length);
+
+// Exercise
+
 const calcAge = function (birthYear) {
 	return 2022 - birthYear;
 };
 
-const yearsUntilRetirement = function (birthYear, firstName) {
-	const age = calcAge(birthYear);
-	const retirement = 65 - age;
+const birthYears = [1990, 1967, 2002, 2010, 2018];
 
-	if (retirement > 0) {
-		console.log(`${firstName} retires in ${retirement} years`);
-		return retirement;
-	} else {
-		console.log(`${firstName} has already retired 🏖️`);
-		return -1;
-	}
+const age1 = calcAge(birthYears[0]);
+const age2 = calcAge(birthYears[1]);
+const age3 = calcAge(birthYears[birthYears.length - 1]);
 
-	// return `${firstName} retires in ${retirement} years`;
-};
+console.log(age1, age2, age3);
 
-console.log(yearsUntilRetirement(1995, "Kiran"));
-console.log(yearsUntilRetirement(1949, "Mahi"));
+const ages = new Array(age1, age2, age3);
+
+const ages2 = [
+	calcAge(birthYears[0]),
+	calcAge(birthYears[1]),
+	calcAge(birthYears[birthYears.length - 1]),
+];
+
+console.log(ages, ages2);
