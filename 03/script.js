@@ -31,17 +31,32 @@
 // console.log(appleOrangeJuice);
 // const num = Number("23");
 
-// Function Declaration
-function calcAge1(birthYear) {
-	// const age = 2037 - birthYear;
-	return 2022 - birthYear;
-}
-const age1 = calcAge1(1995);
+// // Function Declaration
+// function calcAge1(birthYear) {
+// 	// const age = 2037 - birthYear;
+// 	return 2022 - birthYear;
+// }
+// const age1 = calcAge1(1995);
 
-// Function Expression
-const calcAge2 = function (birthYear) {
-	return 2022 - birthYear;
+// // Function Expression
+// const calcAge2 = function (birthYear) {
+// 	return 2022 - birthYear;
+// };
+// const age2 = calcAge2(1995);
+
+// console.log(age1, age2);
+
+// Arrow Function
+const calcAge3 = (birthYear) => 2022 - birthYear;
+const age3 = calcAge3(1995);
+console.log(age3);
+
+const yearsUntilRetirement = (birthYear, firstName) => {
+	const age = 2022 - birthYear;
+	const retirement = 65 - age;
+	// return retirement;
+	return `${firstName} retires in ${retirement} years`;
 };
-const age2 = calcAge2(1995);
 
-console.log(age1, age2);
+console.log(yearsUntilRetirement(1995, "Kiran"));
+console.log(yearsUntilRetirement(1989, "Mahi"));
