@@ -144,33 +144,41 @@
 
 // console.log(ages, ages2);
 
-const friends = ["Meera", "Heera", "Jeera"];
+// const friends = ["Meera", "Heera", "Jeera"];
 
-// Add Elements
-const newLength = friends.push("Jay");
-console.log(friends);
-console.log(newLength);
+// // Add Elements
+// const newLength = friends.push("Jay");
+// console.log(friends);
+// console.log(newLength);
 
-console.log(friends.unshift("John"));
-console.log(friends);
+// console.log(friends.unshift("John"));
+// console.log(friends);
 
-// Remove elements
-console.log(friends.pop());
-friends.pop();
-console.log(friends);
+// // Remove elements
+// console.log(friends.pop());
+// friends.pop();
+// console.log(friends);
 
-console.log(friends.shift());
-console.log(friends);
+// console.log(friends.shift());
+// console.log(friends);
 
-console.log(friends.indexOf("Meera"));
-console.log(friends.indexOf("Heera"));
+// console.log(friends.indexOf("Meera"));
+// console.log(friends.indexOf("Heera"));
 
-friends.push(23);
-console.log(friends.includes("Meera"));
-console.log(friends.includes("Bob"));
-console.log(friends.includes("23"));
-console.log(friends.includes(23));
+// friends.push(23);
+// console.log(friends.includes("Meera"));
+// console.log(friends.includes("Bob"));
+// console.log(friends.includes("23"));
+// console.log(friends.includes(23));
 
-if (friends.includes("Meera")) {
-	console.log("You have a friend called Meera");
-}
+// if (friends.includes("Meera")) {
+// 	console.log("You have a friend called Meera");
+// }
+
+const kiran = {
+	firstName: "Kiran",
+	lastName: "Bansode",
+	age: 2022 - 1995,
+	job: "teacher",
+	friends: ["Meera", "Heera", "Jeera"],
+};
