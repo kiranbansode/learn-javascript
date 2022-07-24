@@ -41,51 +41,102 @@ const restaurant = {
 			`Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
 		);
 	},
+
+	orderPasta: function (ing1, ing2, ing3) {
+		console.log(
+			`Here is your delicious past with ${ing1}, ${ing2} and ${ing3}`
+		);
+	},
 };
 
-restaurant.orderDelivery({
-	time: "22:30",
-	address: "Not Real Address",
-	mainIndex: 2,
-	starterIndex: 2,
-});
+const arr = [7, 8, 9];
+const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+console.log(badNewArr);
 
-restaurant.orderDelivery({
-	address: "Not Real Address",
-	starterIndex: 1,
-});
+const newArr = [1, 2, ...arr];
+console.log(newArr);
+
+console.log(...newArr);
+console.log(1, 2, 7, 8, 9);
+
+const newMenu = [...restaurant.mainMenu, "Gnocci"];
+console.log(newMenu);
+
+// Copy array
+const mainMenuCopy = [...restaurant.mainMenu];
+
+// Join 2 arrays or more
+const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
+console.log(menu);
+
+// Iterables are arrays, strings, maps, sets. But objects are not
+
+const str = "Kiran";
+const letters = [...str, "", "B."];
+console.log(letters);
+console.log(...str);
+
+// Real world example
+const ingredients = [
+	// prompt("Lets make pasta! Ingredient 1 ?"),
+	// prompt("Lets make pasta! Ingredient 2 ?"),
+	// prompt("Lets make pasta! Ingredient 3 ?"),
+];
+console.log(ingredients);
+restaurant.orderPasta(...ingredients);
+
+// Copying Objects
+const newRestaurant = { foundIn: 1996, ...restaurant, founder: "Meera" };
+console.log(newRestaurant);
+const restaurantCopy = { ...restaurant };
+restaurantCopy.name = "Shourya Wada";
+console.log(restaurant.name);
+console.log(restaurantCopy.name);
 
 /* -------------------------- Destructuring Objects ------------------------- */
-const { name, categories, openingHours } = restaurant;
-console.log(name, openingHours, categories);
 
-// Renaming destructured properties
-const {
-	name: restaurantName,
-	openingHours: hours,
-	categories: tags,
-} = restaurant;
-console.log(restaurantName, hours, tags);
+// restaurant.orderDelivery({
+// 	time: "22:30",
+// 	address: "Not Real Address",
+// 	mainIndex: 2,
+// 	starterIndex: 2,
+// });
 
-// Default Values
-const { newMenu, menu = [], starterMenu: starters = [] } = restaurant;
-console.log(newMenu, menu, starters);
+// restaurant.orderDelivery({
+// 	address: "Not Real Address",
+// 	starterIndex: 1,
+// });
 
-// mutating variables
-let a = 111;
-let b = 999;
-const obj = { a: 23, b: 7, c: 14 };
+// const { name, categories, openingHours } = restaurant;
+// console.log(name, openingHours, categories);
 
-// Need to wrap inside () brackets
-({ a, b } = obj);
-console.log(a, b);
+// // Renaming destructured properties
+// const {
+// 	name: restaurantName,
+// 	openingHours: hours,
+// 	categories: tags,
+// } = restaurant;
+// console.log(restaurantName, hours, tags);
 
-// destructuring nested objects
-const {
-	fri: { open, close: c },
-} = openingHours;
+// // Default Values
+// const { newMenu, menu = [], starterMenu: starters = [] } = restaurant;
+// console.log(newMenu, menu, starters);
 
-console.log(open, c);
+// // mutating variables
+// let a = 111;
+// let b = 999;
+// const obj = { a: 23, b: 7, c: 14 };
+
+// // Need to wrap inside () brackets
+// ({ a, b } = obj);
+// console.log(a, b);
+
+// // destructuring nested objects
+// const {
+// 	fri: { open, close: c },
+// } = openingHours;
+
+// console.log(open, c);
 
 /* -------------------------- Destructuring Arrays -------------------------- */
 
