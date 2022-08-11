@@ -47,51 +47,98 @@ const restaurant = {
 			`Here is your delicious past with ${ing1}, ${ing2} and ${ing3}`
 		);
 	},
+
+	orderPizza: function (mainIng, ...otherIng) {
+		console.log(mainIng);
+		console.log(otherIng);
+	},
 };
 
-const arr = [7, 8, 9];
-const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
-console.log(badNewArr);
+/* --------------------------- Rest Operator (...) -------------------------- */
 
-const newArr = [1, 2, ...arr];
-console.log(newArr);
+// SPREAD, because on RIGHT side of =
+const arr = [1, 2, ...[3, 4]];
 
-console.log(...newArr);
-console.log(1, 2, 7, 8, 9);
+// REST, because of LEFT side of =
+const [a, b, ...others] = [1, 2, 3, 4, 5];
+console.log(a, b, others);
 
-const newMenu = [...restaurant.mainMenu, "Gnocci"];
-console.log(newMenu);
-
-// Copy array
-const mainMenuCopy = [...restaurant.mainMenu];
-
-// Join 2 arrays or more
-const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
-console.log(menu);
-
-// Iterables are arrays, strings, maps, sets. But objects are not
-
-const str = "Kiran";
-const letters = [...str, "", "B."];
-console.log(letters);
-console.log(...str);
-
-// Real world example
-const ingredients = [
-	// prompt("Lets make pasta! Ingredient 1 ?"),
-	// prompt("Lets make pasta! Ingredient 2 ?"),
-	// prompt("Lets make pasta! Ingredient 3 ?"),
+const [pizza, , risotto, ...otherFood] = [
+	...restaurant.mainMenu,
+	...restaurant.starterMenu,
 ];
-console.log(ingredients);
-restaurant.orderPasta(...ingredients);
 
-// Copying Objects
-const newRestaurant = { foundIn: 1996, ...restaurant, founder: "Meera" };
-console.log(newRestaurant);
-const restaurantCopy = { ...restaurant };
-restaurantCopy.name = "Shourya Wada";
-console.log(restaurant.name);
-console.log(restaurantCopy.name);
+console.log(pizza, risotto, otherFood);
+
+// Objects
+const { sat, ...weekdays } = restaurant.openingHours;
+console.log(weekdays);
+
+// Functions
+
+const add = function (...numbers) {
+	let sum = 0;
+	numbers.map((num) => {
+		sum += num;
+	});
+	console.log(sum);
+};
+
+add(2, 3);
+add(5, 3, 7, 2);
+add(8, 2, 5, 3, 2, 1, 4);
+
+const x = [22, 5, 7];
+add(...x);
+
+restaurant.orderPizza("mushrooms", "onion", "olives");
+restaurant.orderPizza("mushrooms");
+
+/* ------------------------ The Spread Operator (...) ----------------------- */
+
+// const arr = [7, 8, 9];
+// const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+// console.log(badNewArr);
+
+// const newArr = [1, 2, ...arr];
+// console.log(newArr);
+
+// console.log(...newArr);
+// console.log(1, 2, 7, 8, 9);
+
+// const newMenu = [...restaurant.mainMenu, "Gnocci"];
+// console.log(newMenu);
+
+// // Copy array
+// const mainMenuCopy = [...restaurant.mainMenu];
+
+// // Join 2 arrays or more
+// const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
+// console.log(menu);
+
+// // Iterables are arrays, strings, maps, sets. But objects are not
+
+// const str = "Kiran";
+// const letters = [...str, "", "B."];
+// console.log(letters);
+// console.log(...str);
+
+// // Real world example
+// const ingredients = [
+// 	// prompt("Lets make pasta! Ingredient 1 ?"),
+// 	// prompt("Lets make pasta! Ingredient 2 ?"),
+// 	// prompt("Lets make pasta! Ingredient 3 ?"),
+// ];
+// console.log(ingredients);
+// restaurant.orderPasta(...ingredients);
+
+// // Copying Objects
+// const newRestaurant = { foundIn: 1996, ...restaurant, founder: "Meera" };
+// console.log(newRestaurant);
+// const restaurantCopy = { ...restaurant };
+// restaurantCopy.name = "Shourya Wada";
+// console.log(restaurant.name);
+// console.log(restaurantCopy.name);
 
 /* -------------------------- Destructuring Objects ------------------------- */
 
