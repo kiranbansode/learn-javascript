@@ -54,6 +54,35 @@ const restaurant = {
 	},
 };
 
+console.log("-------OR---------");
+
+// Use any data types, return any data type, short-circuting
+console.log(3 || "Kiran");
+console.log("" || "Kiran");
+console.log(true || 0);
+console.log(0 || true);
+console.log(undefined || null);
+console.log(undefined || 0 || "" || "Hello" || 23 || null);
+
+restaurant.numGuests = 0;
+const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guests1);
+
+const guests2 = restaurant.numGuests || 10;
+console.log(guests2);
+
+console.log("-------AND---------");
+
+console.log(0 && "Kiran");
+console.log(7 && "Kiran");
+console.log("Hello" && 23 && null && "Kiran");
+
+if (restaurant.orderPizza) {
+	restaurant.orderPizza("mushroom", "spinach");
+}
+
+restaurant.orderPizza && restaurant.orderPizza("mushroom", "spinach");
+
 /* --------------------------- Rest Operator (...) -------------------------- */
 
 // SPREAD, because on RIGHT side of =
