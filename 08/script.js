@@ -126,51 +126,68 @@
 
 // var firstName = "Meera";
 
-const kiran = {
-	firstName: "Kiran",
-	birthYear: 1995,
-	calcAge: function () {
-		console.log(this); // window
-		console.log(2022 - this.birthYear);
+// const kiran = {
+// 	firstName: "Kiran",
+// 	birthYear: 1995,
+// 	calcAge: function () {
+// 		console.log(this); // window
+// 		console.log(2022 - this.birthYear);
 
-		/* ------------------------------- Solution 1 ------------------------------- */
-		// const self = this; // self or that
-		// const isMillennial = function () {
-		// 	console.log(self);
-		// 	console.log(self.year >= 1981 && self.year <= 1996);
-		// };
-		// isMillennial();
+// 		/* ------------------------------- Solution 1 ------------------------------- */
+// 		// const self = this; // self or that
+// 		// const isMillennial = function () {
+// 		// 	console.log(self);
+// 		// 	console.log(self.year >= 1981 && self.year <= 1996);
+// 		// };
+// 		// isMillennial();
 
-		/* ------------------------------- Solution 2 ------------------------------- */
-		const isMillennial = () => {
-			console.log(this);
-			console.log(this.year >= 1981 && this.year <= 1996);
-		};
-		isMillennial();
-	},
-	greet: function () {
-		console.log(`Hey ${this.firstName}`);
-	},
-	//! Never ever use arrow functions for methods
-	// greet: () => console.log(`Hey ${this.firstName}`),
+// 		/* ------------------------------- Solution 2 ------------------------------- */
+// 		const isMillennial = () => {
+// 			console.log(this);
+// 			console.log(this.year >= 1981 && this.year <= 1996);
+// 		};
+// 		isMillennial();
+// 	},
+// 	greet: function () {
+// 		console.log(`Hey ${this.firstName}`);
+// 	},
+// 	//! Never ever use arrow functions for methods
+// 	// greet: () => console.log(`Hey ${this.firstName}`),
+// };
+
+// kiran.greet();
+// kiran.calcAge();
+
+// // arguments keyword
+// const addExpr = function (a, b) {
+// 	// arguments keyword will work in only function created using function keyword not in arrow functions
+// 	console.log(arguments);
+// 	return a + b;
+// };
+
+// addExpr(2, 5);
+// addExpr(2, 5, 8, 12);
+
+// var addArrow = (a, b) => {
+// 	console.log(arguments);
+// 	return a + b;
+// };
+
+// addArrow(2, 5, 8);
+
+let age = 27;
+let oldAge = age;
+age = 28;
+
+console.log(age);
+console.log(oldAge);
+
+const me = {
+	name: "Kiran",
+	age: 27,
 };
 
-kiran.greet();
-kiran.calcAge();
-
-// arguments keyword
-const addExpr = function (a, b) {
-	// arguments keyword will work in only function created using function keyword not in arrow functions
-	console.log(arguments);
-	return a + b;
-};
-
-addExpr(2, 5);
-addExpr(2, 5, 8, 12);
-
-var addArrow = (a, b) => {
-	console.log(arguments);
-	return a + b;
-};
-
-addArrow(2, 5, 8);
+const friend = me;
+friend.age = 26;
+console.log("Friend", friend);
+console.log("Me", me);
