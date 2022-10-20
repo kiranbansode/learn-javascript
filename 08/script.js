@@ -82,44 +82,95 @@
 // console.log(y === window.y);
 // console.log(z === window.z);
 
-console.log(this); // window
+// console.log(this); // window
 
-const calcAge = function (birthYear) {
-	console.log(2022 - birthYear);
-	console.log(this); // undefined in 'strict' mode
-};
+// const calcAge = function (birthYear) {
+// 	console.log(2022 - birthYear);
+// 	console.log(this); // undefined in 'strict' mode
+// };
 
-calcAge(1995);
+// calcAge(1995);
 
-const calcAgeArrow = (birthYear) => {
-	console.log(2022 - birthYear);
-	console.log(this); // window object
-	// Arrow function will use their parent's scope
-};
+// const calcAgeArrow = (birthYear) => {
+// 	console.log(2022 - birthYear);
+// 	console.log(this); // window object
+// 	// Arrow function will use their parent's scope
+// };
 
-calcAgeArrow(1995);
+// calcAgeArrow(1995);
+
+// const kiran = {
+// 	birthYear: 1995,
+// 	calcAge: function () {
+// 		console.log(this); // object where it is defined
+// 		console.log(2022 - this.birthYear);
+// 	},
+// 	calcAge2: () => {
+// 		console.log(this); // it will return window object
+// 		console.log(2022 - this.birthYear); // will not work
+// 	},
+// };
+
+// kiran.calcAge();
+// kiran.calcAge2();
+
+// const meera = {
+// 	year: 2017,
+// };
+
+// meera.calcAge = kiran.calcAge;
+// meera.calcAge();
+
+// const f = kiran.calcAge;
+// f();
+
+// var firstName = "Meera";
 
 const kiran = {
+	firstName: "Kiran",
 	birthYear: 1995,
 	calcAge: function () {
-		console.log(this); // object where it is defined
+		console.log(this); // window
 		console.log(2022 - this.birthYear);
+
+		/* ------------------------------- Solution 1 ------------------------------- */
+		// const self = this; // self or that
+		// const isMillennial = function () {
+		// 	console.log(self);
+		// 	console.log(self.year >= 1981 && self.year <= 1996);
+		// };
+		// isMillennial();
+
+		/* ------------------------------- Solution 2 ------------------------------- */
+		const isMillennial = () => {
+			console.log(this);
+			console.log(this.year >= 1981 && this.year <= 1996);
+		};
+		isMillennial();
 	},
-	calcAge2: () => {
-		console.log(this); // it will return window object
-		console.log(2022 - this.birthYear); // will not work
+	greet: function () {
+		console.log(`Hey ${this.firstName}`);
 	},
+	//! Never ever use arrow functions for methods
+	// greet: () => console.log(`Hey ${this.firstName}`),
 };
 
+kiran.greet();
 kiran.calcAge();
-kiran.calcAge2();
 
-const meera = {
-	year: 2017,
+// arguments keyword
+const addExpr = function (a, b) {
+	// arguments keyword will work in only function created using function keyword not in arrow functions
+	console.log(arguments);
+	return a + b;
 };
 
-meera.calcAge = kiran.calcAge;
-meera.calcAge();
+addExpr(2, 5);
+addExpr(2, 5, 8, 12);
 
-const f = kiran.calcAge;
-f();
+var addArrow = (a, b) => {
+	console.log(arguments);
+	return a + b;
+};
+
+addArrow(2, 5, 8);
