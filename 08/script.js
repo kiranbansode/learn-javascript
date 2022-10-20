@@ -175,19 +175,56 @@
 
 // addArrow(2, 5, 8);
 
-let age = 27;
-let oldAge = age;
-age = 28;
+// let age = 27;
+// let oldAge = age;
+// age = 28;
 
-console.log(age);
-console.log(oldAge);
+// console.log(age);
+// console.log(oldAge);
 
-const me = {
-	name: "Kiran",
+// const me = {
+// 	name: "Kiran",
+// 	age: 27,
+// };
+
+// const friend = me;
+// friend.age = 26;
+// console.log("Friend", friend);
+// console.log("Me", me);
+
+// Primitive Types
+let lastName = "Williams";
+let oldLastName = lastName;
+lastName = "Davis";
+console.log(lastName, oldLastName);
+
+// Reference Types
+const jessica = {
+	firstName: "Jessica",
+	lastName: "Williams",
 	age: 27,
 };
 
-const friend = me;
-friend.age = 26;
-console.log("Friend", friend);
-console.log("Me", me);
+const marriedJessica = jessica;
+marriedJessica.lastName = "Davis";
+console.log("Before marriage: ", jessica);
+console.log("After marriage: ", marriedJessica);
+
+// marriedJessica = {}
+
+// Copying objects
+const jessica2 = {
+	firstName: "Jessica",
+	lastName: "Williams",
+	age: 27,
+	family: ["Alice", "Bob"],
+};
+
+const marriedJessica2 = Object.assign({}, jessica2);
+marriedJessica2.lastName = "Davis";
+
+marriedJessica2.family.push("Mary");
+marriedJessica2.family.push("John");
+
+console.log("Before marriage: ", jessica2);
+console.log("After marriage: ", marriedJessica2);
