@@ -61,9 +61,41 @@ console.log(guests);
 const guestCorrect = restaurant.numGuests ?? 10;
 console.log(guestCorrect);
 
+const rest1 = {
+	name: "Capri",
+	// numGuest: 20,
+	numGuest: 0,
+};
+
+const rest2 = {
+	name: "La Piazza",
+	owner: "Giovanni Roosi",
+};
+
+// rest1.numberGuest = rest1.numGuest || 10;
+// rest2.numberGuest = rest2.numGuest || 10;
+
+// OR assignment operator
+rest1.numGuest ||= 10;
+rest2.numGuest ||= 10;
+
+// Nullish assignment operator (null or undefined)
+rest1.numGuest ??= 10;
+rest2.numGuest ??= 10;
+
+// rest1.owner = rest1.owner && "Anonymous";
+// rest2.owner = rest2.owner && "Anonymous";
+
+// AND assignment operator
+rest1.owner &&= "Anonymous";
+rest2.owner &&= "Anonymous";
+
+console.log(rest1);
+console.log(rest2);
+
 // console.log("-------OR---------");
 
-// // Use any data types, return any data type, short-circuting
+// // Use any data types, return any data type, short-circuiting
 // console.log(3 || "Kiran");
 // console.log("" || "Kiran");
 // console.log(true || 0);
