@@ -54,74 +54,81 @@ const restaurant = {
 	},
 };
 
-console.log("-------OR---------");
-
-// Use any data types, return any data type, short-circuting
-console.log(3 || "Kiran");
-console.log("" || "Kiran");
-console.log(true || 0);
-console.log(0 || true);
-console.log(undefined || null);
-console.log(undefined || 0 || "" || "Hello" || 23 || null);
-
 restaurant.numGuests = 0;
-const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
-console.log(guests1);
+const guests = restaurant.numGuests || 10;
+console.log(guests);
 
-const guests2 = restaurant.numGuests || 10;
-console.log(guests2);
+const guestCorrect = restaurant.numGuests ?? 10;
+console.log(guestCorrect);
 
-console.log("-------AND---------");
+// console.log("-------OR---------");
 
-console.log(0 && "Kiran");
-console.log(7 && "Kiran");
-console.log("Hello" && 23 && null && "Kiran");
+// // Use any data types, return any data type, short-circuting
+// console.log(3 || "Kiran");
+// console.log("" || "Kiran");
+// console.log(true || 0);
+// console.log(0 || true);
+// console.log(undefined || null);
+// console.log(undefined || 0 || "" || "Hello" || 23 || null);
 
-if (restaurant.orderPizza) {
-	restaurant.orderPizza("mushroom", "spinach");
-}
+// restaurant.numGuests = 0;
+// const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+// console.log(guests1);
 
-restaurant.orderPizza && restaurant.orderPizza("mushroom", "spinach");
+// const guests2 = restaurant.numGuests || 10;
+// console.log(guests2);
 
-/* --------------------------- Rest Operator (...) -------------------------- */
+// console.log("-------AND---------");
 
-// SPREAD, because on RIGHT side of =
-const arr = [1, 2, ...[3, 4]];
+// console.log(0 && "Kiran");
+// console.log(7 && "Kiran");
+// console.log("Hello" && 23 && null && "Kiran");
 
-// REST, because of LEFT side of =
-const [a, b, ...others] = [1, 2, 3, 4, 5];
-console.log(a, b, others);
+// if (restaurant.orderPizza) {
+// 	restaurant.orderPizza("mushroom", "spinach");
+// }
 
-const [pizza, , risotto, ...otherFood] = [
-	...restaurant.mainMenu,
-	...restaurant.starterMenu,
-];
+// restaurant.orderPizza && restaurant.orderPizza("mushroom", "spinach");
 
-console.log(pizza, risotto, otherFood);
+// /* --------------------------- Rest Operator (...) -------------------------- */
 
-// Objects
-const { sat, ...weekdays } = restaurant.openingHours;
-console.log(weekdays);
+// // SPREAD, because on RIGHT side of =
+// const arr = [1, 2, ...[3, 4]];
 
-// Functions
+// // REST, because of LEFT side of =
+// const [a, b, ...others] = [1, 2, 3, 4, 5];
+// console.log(a, b, others);
 
-const add = function (...numbers) {
-	let sum = 0;
-	numbers.map((num) => {
-		sum += num;
-	});
-	console.log(sum);
-};
+// const [pizza, , risotto, ...otherFood] = [
+// 	...restaurant.mainMenu,
+// 	...restaurant.starterMenu,
+// ];
 
-add(2, 3);
-add(5, 3, 7, 2);
-add(8, 2, 5, 3, 2, 1, 4);
+// console.log(pizza, risotto, otherFood);
 
-const x = [22, 5, 7];
-add(...x);
+// // Objects
+// const { sat, ...weekdays } = restaurant.openingHours;
+// console.log(weekdays);
 
-restaurant.orderPizza("mushrooms", "onion", "olives");
-restaurant.orderPizza("mushrooms");
+// // Functions
+
+// const add = function (...numbers) {
+// 	let sum = 0;
+// 	numbers.map((num) => {
+// 		sum += num;
+// 	});
+// 	console.log(sum);
+// };
+
+// add(2, 3);
+// add(5, 3, 7, 2);
+// add(8, 2, 5, 3, 2, 1, 4);
+
+// const x = [22, 5, 7];
+// add(...x);
+
+// restaurant.orderPizza("mushrooms", "onion", "olives");
+// restaurant.orderPizza("mushrooms");
 
 /* ------------------------ The Spread Operator (...) ----------------------- */
 
