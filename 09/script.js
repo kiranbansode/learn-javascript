@@ -54,44 +54,52 @@ const restaurant = {
 	},
 };
 
-restaurant.numGuests = 0;
-const guests = restaurant.numGuests || 10;
-console.log(guests);
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 
-const guestCorrect = restaurant.numGuests ?? 10;
-console.log(guestCorrect);
+for (const item of menu) console.log(item);
 
-const rest1 = {
-	name: "Capri",
-	// numGuest: 20,
-	numGuest: 0,
-};
+for (const [i, el] of menu.entries()) {
+	console.log(`${i + 1}: ${el}`);
+}
 
-const rest2 = {
-	name: "La Piazza",
-	owner: "Giovanni Roosi",
-};
+// restaurant.numGuests = 0;
+// const guests = restaurant.numGuests || 10;
+// console.log(guests);
 
-// rest1.numberGuest = rest1.numGuest || 10;
-// rest2.numberGuest = rest2.numGuest || 10;
+// const guestCorrect = restaurant.numGuests ?? 10;
+// console.log(guestCorrect);
 
-// OR assignment operator
-rest1.numGuest ||= 10;
-rest2.numGuest ||= 10;
+// const rest1 = {
+// 	name: "Capri",
+// 	// numGuest: 20,
+// 	numGuest: 0,
+// };
 
-// Nullish assignment operator (null or undefined)
-rest1.numGuest ??= 10;
-rest2.numGuest ??= 10;
+// const rest2 = {
+// 	name: "La Piazza",
+// 	owner: "Giovanni Roosi",
+// };
 
-// rest1.owner = rest1.owner && "Anonymous";
-// rest2.owner = rest2.owner && "Anonymous";
+// // rest1.numberGuest = rest1.numGuest || 10;
+// // rest2.numberGuest = rest2.numGuest || 10;
 
-// AND assignment operator
-rest1.owner &&= "Anonymous";
-rest2.owner &&= "Anonymous";
+// // OR assignment operator
+// rest1.numGuest ||= 10;
+// rest2.numGuest ||= 10;
 
-console.log(rest1);
-console.log(rest2);
+// // Nullish assignment operator (null or undefined)
+// rest1.numGuest ??= 10;
+// rest2.numGuest ??= 10;
+
+// // rest1.owner = rest1.owner && "Anonymous";
+// // rest2.owner = rest2.owner && "Anonymous";
+
+// // AND assignment operator
+// rest1.owner &&= "Anonymous";
+// rest2.owner &&= "Anonymous";
+
+// console.log(rest1);
+// console.log(rest2);
 
 // console.log("-------OR---------");
 
