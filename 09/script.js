@@ -1,79 +1,79 @@
 "use strict";
 
 // Data needed for a later exercise
-const flights =
-	"_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30";
+// const flights =
+// 	"_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30";
 
-const weekdays = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
+// const weekdays = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
 
-const openingHours = {
-	[weekdays[3]]: {
-		open: 12,
-		close: 22,
-	},
-	[weekdays[4]]: {
-		open: 11,
-		close: 23,
-	},
-	[weekdays[5]]: {
-		open: 0, // Open 24 hours
-		close: 24,
-	},
-};
+// const openingHours = {
+// 	[weekdays[3]]: {
+// 		open: 12,
+// 		close: 22,
+// 	},
+// 	[weekdays[4]]: {
+// 		open: 11,
+// 		close: 23,
+// 	},
+// 	[weekdays[5]]: {
+// 		open: 0, // Open 24 hours
+// 		close: 24,
+// 	},
+// };
 
-// Data needed for first part of the section
-const restaurant = {
-	name: "Classico Italiano",
-	location: "Via Angelo Tavanti 23, Firenze, Italy",
-	categories: ["Italian", "Pizzeria", "Vegetarian", "Organic"],
-	starterMenu: ["Focaccia", "Bruschetta", "Garlic Bread", "Caprese Salad"],
-	mainMenu: ["Pizza", "Pasta", "Risotto"],
-	// ES6 enhanced object literals
-	openingHours,
-	order(starterInderx, mainIndex) {
-		return [this.starterMenu[starterInderx], this.mainMenu[mainIndex]];
-	},
+// // Data needed for first part of the section
+// const restaurant = {
+// 	name: "Classico Italiano",
+// 	location: "Via Angelo Tavanti 23, Firenze, Italy",
+// 	categories: ["Italian", "Pizzeria", "Vegetarian", "Organic"],
+// 	starterMenu: ["Focaccia", "Bruschetta", "Garlic Bread", "Caprese Salad"],
+// 	mainMenu: ["Pizza", "Pasta", "Risotto"],
+// 	// ES6 enhanced object literals
+// 	openingHours,
+// 	order(starterInderx, mainIndex) {
+// 		return [this.starterMenu[starterInderx], this.mainMenu[mainIndex]];
+// 	},
 
-	// Destructuring with default values
-	orderDelivery({ starterIndex = 1, mainIndex = 0, time = "20:00", address }) {
-		console.log(
-			`Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
-		);
-	},
+// 	// Destructuring with default values
+// 	orderDelivery({ starterIndex = 1, mainIndex = 0, time = "20:00", address }) {
+// 		console.log(
+// 			`Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
+// 		);
+// 	},
 
-	orderPasta(ing1, ing2, ing3) {
-		console.log(
-			`Here is your delicious past with ${ing1}, ${ing2} and ${ing3}`
-		);
-	},
+// 	orderPasta(ing1, ing2, ing3) {
+// 		console.log(
+// 			`Here is your delicious past with ${ing1}, ${ing2} and ${ing3}`
+// 		);
+// 	},
 
-	orderPizza(mainIng, ...otherIng) {
-		console.log(mainIng);
-		console.log(otherIng);
-	},
-};
+// 	orderPizza(mainIng, ...otherIng) {
+// 		console.log(mainIng);
+// 		console.log(otherIng);
+// 	},
+// };
 
-// Properties Names
-const properties = Object.keys(openingHours);
-console.log(properties);
+// // Properties Names
+// const properties = Object.keys(openingHours);
+// console.log(properties);
 
-let openStr = `We are open on ${properties.length} days`;
-for (const day of properties) {
-	openStr += `${day}, `;
-}
-console.log(openStr);
+// let openStr = `We are open on ${properties.length} days`;
+// for (const day of properties) {
+// 	openStr += `${day}, `;
+// }
+// console.log(openStr);
 
-// Properties Values
-const values = Object.values(openingHours);
-console.log(values);
+// // Properties Values
+// const values = Object.values(openingHours);
+// console.log(values);
 
-// Entries object
-const entries = Object.entries(openingHours);
-console.log(entries);
+// // Entries object
+// const entries = Object.entries(openingHours);
+// console.log(entries);
 
-for (const [day, { open, close }] of entries) {
-	console.log(`On ${day} we open at ${open} and close at ${close}`);
-}
+// for (const [day, { open, close }] of entries) {
+// 	console.log(`On ${day} we open at ${open} and close at ${close}`);
+// }
 
 /* ---------------------------- Optional Chaining --------------------------- */
 
@@ -410,37 +410,76 @@ for (const [day, { open, close }] of entries) {
 // console.log(rest.get(arr));
 // console.log(rest.size);
 
-const question = new Map([
-	["question", "What is the best programming language in the world ?"],
-	[1, "C"],
-	[2, "C++"],
-	[3, "Java"],
-	[4, "JavaScript"],
-	["correct", 4],
-	[true, "Correct"],
-	[false, "Try Again!"],
-]);
+// const question = new Map([
+// 	["question", "What is the best programming language in the world ?"],
+// 	[1, "C"],
+// 	[2, "C++"],
+// 	[3, "Java"],
+// 	[4, "JavaScript"],
+// 	["correct", 4],
+// 	[true, "Correct"],
+// 	[false, "Try Again!"],
+// ]);
 
-console.log(question);
+// console.log(question);
 
-// Convert object to Map
-console.log(Object.entries(openingHours));
-const hoursMap = new Map(Object.entries(openingHours));
-console.log(hoursMap);
+// // Convert object to Map
+// console.log(Object.entries(openingHours));
+// const hoursMap = new Map(Object.entries(openingHours));
+// console.log(hoursMap);
 
-// Quiz app
-console.log(question.get("question"));
+// // Quiz app
+// console.log(question.get("question"));
 
-for (const [key, value] of question) {
-	if (typeof key === "number") console.log(`Option ${key}: ${value}`);
-}
-const answer = Number(prompt("Your answer"));
-console.log(answer);
+// for (const [key, value] of question) {
+// 	if (typeof key === "number") console.log(`Option ${key}: ${value}`);
+// }
+// const answer = Number(prompt("Your answer"));
+// console.log(answer);
 
-console.log(question.get(question.get("correct") === answer));
+// console.log(question.get(question.get("correct") === answer));
 
-// Convert Map to Array
+// // Convert Map to Array
 
-console.log([...question]);
-console.log([...question.keys()]);
-console.log([...question.values()]);
+// console.log([...question]);
+// console.log([...question.keys()]);
+// console.log([...question.values()]);
+
+const airline = "TAP Air Portugal";
+const plane = "A320";
+
+console.log(plane[0]);
+console.log(plane[1]);
+console.log(plane[2]);
+console.log("B737"[0]);
+
+console.log(airline.indexOf("r"));
+console.log(airline.lastIndexOf("r"));
+console.log(airline.indexOf("portugal"));
+
+console.log(airline.slice(4));
+console.log(airline.slice(4, 7));
+
+console.log(airline.slice(0, airline.indexOf(" ")));
+console.log(airline.slice(airline.lastIndexOf(" ") + 1));
+
+console.log(airline.slice(-2));
+console.log(airline.slice(1, -1));
+
+const checkMiddleSeat = function (seat) {
+	const s = seat.slice(-1);
+	if(s==='B' || 'E'){
+		console.log('You got the middle seat 😑');
+	}else{
+		console.log('You got lucky 😎')
+	}
+
+};
+
+checkMiddleSeat("11B");
+checkMiddleSeat("23C");
+checkMiddleSeat("3E");
+
+console.log(new String('kiran'));
+console.log(typeof new String('kiran'));
+console.log(typeof new String('kiran').slice(1));
