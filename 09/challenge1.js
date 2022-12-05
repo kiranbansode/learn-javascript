@@ -85,32 +85,58 @@
 // 	console.log(`Odd of ${teamStr}  ${odd}`);
 // }
 
-const gameEvents = new Map([
-	[17, "GOAL"],
-	[36, "Substitution"],
-	[47, "GOAL"],
-	[61, "Substitution"],
-	[64, "Yellow Card"],
-	[69, "Red Card"],
-	[70, "Substitution"],
-	[72, "Substitution"],
-	[76, "GOAL"],
-	[80, "GOAL"],
-	[92, "Yellow Card"],
-]);
+// const gameEvents = new Map([
+// 	[17, "GOAL"],
+// 	[36, "Substitution"],
+// 	[47, "GOAL"],
+// 	[61, "Substitution"],
+// 	[64, "Yellow Card"],
+// 	[69, "Red Card"],
+// 	[70, "Substitution"],
+// 	[72, "Substitution"],
+// 	[76, "GOAL"],
+// 	[80, "GOAL"],
+// 	[92, "Yellow Card"],
+// ]);
 
-// console.log(gameEvents.values());
-const events = new Set(gameEvents.values());
-console.log(events);
+// // console.log(gameEvents.values());
+// const events = new Set(gameEvents.values());
+// console.log(events);
 
-gameEvents.delete(64);
+// gameEvents.delete(64);
 
-console.log(`An event happened, on average, every ${90 / gameEvents.size}`);
+// console.log(`An event happened, on average, every ${90 / gameEvents.size}`);
 
-const time = [...gameEvents.keys()].pop();
-console.log(`An event happened, on average, every ${90 / gameEvents.size}`);
+// const time = [...gameEvents.keys()].pop();
+// console.log(`An event happened, on average, every ${90 / gameEvents.size}`);
 
-for (const [min, event] of gameEvents) {
-	const half = min <= 45 ? "FIRST" : "SECOND";
-	console.log(`[${half}-HALF] ${min}: ${event}`);
-}
+// for (const [min, event] of gameEvents) {
+// 	const half = min <= 45 ? "FIRST" : "SECOND";
+// 	console.log(`[${half}-HALF] ${min}: ${event}`);
+// }
+
+/* ------------------------------ Challenge #4 ------------------------------ */
+
+document.body.append(document.createElement("textarea"));
+document.body.append(document.createElement("button"));
+const text = document.querySelector("textarea").value;
+
+document.querySelector("button").addEventListener("click", function () {
+	const text = document.querySelector("textarea").value;
+	const rows = text.split("\n");
+
+	for (const [i, row] of rows.entries()) {
+		const [first, second] = row.toLowerCase().trim().split("_");
+		const output = `${first}${second.replace(
+			second[0],
+			second[0].toUpperCase()
+		)}`;
+		console.log(`${output.padEnd(20)}${"✅".repeat(i + 1)}`);
+	}
+});
+
+// underscore_case
+// first_name
+// Some_Variable
+// calculate_Age
+// delayed_departure
