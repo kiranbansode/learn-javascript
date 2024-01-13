@@ -46,3 +46,29 @@ console.log(kiran.species, meera);
 
 console.log(kiran.hasOwnProperty("firstName"));
 console.log(kiran.hasOwnProperty("species"));
+
+console.log(kiran.__proto__);
+console.log(kiran.__proto__.__proto__);
+console.log(kiran.__proto__.__proto__.__proto__);
+
+console.log(Person.prototype.constructor);
+
+const arr = [3, 5, 6, 7, 4, 5, 9, 3, 3]; // new Array === []
+console.log(arr.__proto__);
+console.log(arr.__proto__ === Array.prototype);
+
+console.log(arr.__proto__.__proto__);
+
+// Not recommended
+// may be in future JavaScript relese new method with same name
+Array.prototype.unique = function () {
+	return [...new Set(this)];
+};
+
+console.log(arr.unique());
+
+const h1 = document.querySelector("h1");
+// Prototype Chain
+// Object => EventTarget => Node => Element => HTMLElement => HTMLHeadingElement
+
+console.dir((x) => x + 1);
