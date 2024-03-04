@@ -105,8 +105,8 @@
 
 // class declaration
 class PersonCl {
-	constructor(firstName, birthYear) {
-		this.firstName = firstName;
+	constructor(fullName, birthYear) {
+		this.fullName = fullName;
 		this.birthYear = birthYear;
 	}
 
@@ -116,13 +116,29 @@ class PersonCl {
 	}
 
 	greet() {
-		console.log(`Hey ${this.firstName}`);
+		console.log(`Hey ${this.fullName}`);
+	}
+
+	get age() {
+		return 2024 - this.birthYear;
+	}
+
+	// Set a property that already exists
+	set fullName(name) {
+		console.log(name);
+		if (name.includes(" ")) this._fullName = name;
+		else alert(`${name} is not a full name!`);
+	}
+
+	get fullName() {
+		return this._fullName;
 	}
 }
 
-const kiran = new PersonCl("Kiran", 1995);
+const kiran = new PersonCl("Kiran Bansode", 1995);
 console.log(kiran);
 kiran.calcAge();
+console.log(kiran.age);
 console.log(kiran.__proto__ === PersonCl.prototype);
 
 // PersonCl.prototype.greet = function () {
@@ -130,3 +146,22 @@ console.log(kiran.__proto__ === PersonCl.prototype);
 // };
 
 kiran.greet();
+
+const walt = new PersonCl("Walt Disney", 1995);
+
+const account = {
+	owner: "kiran",
+	movements: [200, 530, 120, 300],
+	get latest() {
+		return this.movements.slice(-1).pop();
+	},
+
+	set latest(mov) {
+		this.movements.push(mov);
+	},
+};
+
+console.log(account.latest);
+account.latest = 50;
+console.log(account.movements);
+console.log(account.latest);
