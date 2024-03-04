@@ -1,30 +1,37 @@
 // "use strict";
 
-// const Person = function (firstName, birthYear) {
-// 	this.firstName = firstName;
-// 	this.birthYear = birthYear;
+const Person = function (firstName, birthYear) {
+	this.firstName = firstName;
+	this.birthYear = birthYear;
 
-// 	// Never do this
-// 	// this.calcAge = function () {
-// 	// 	console.log(2037 - this.birthYear);
-// 	// };
-// };
+	// Never do this
+	// this.calcAge = function () {
+	// 	console.log(2037 - this.birthYear);
+	// };
+};
 
-// const kiran = new Person("Kiran", 1995);
-// console.log(kiran);
+const kiran = new Person("Kiran", 1995);
+console.log(kiran);
 
-// // 1. {} => New Empty Object is created
-// // 2. function is called, 'this' gets assign to => {} Newly created empty object
-// // 3. {} object is linked to prototype
-// // 4. function automatically return {}
+// 1. {} => New Empty Object is created
+// 2. function is called, 'this' gets assign to => {} Newly created empty object
+// 3. {} object is linked to prototype
+// 4. function automatically return {}
 
-// const meera = new Person("Meera", 2000);
-// const jack = new Person("Jack", 1975);
-// console.log(meera, jack);
+const meera = new Person("Meera", 2000);
+const jack = new Person("Jack", 1975);
+console.log(meera, jack);
 
-// console.log(kiran instanceof Person);
+console.log(kiran instanceof Person);
 
-// console.log(Person.prototype);
+console.log(Person.prototype);
+
+Person.hey = function () {
+	console.log("Hey there 👋🏻");
+	console.log(this);
+};
+
+Person.hey();
 
 // // Prototypes
 // Person.prototype.calcAge = function () {
@@ -111,6 +118,7 @@ class PersonCl {
 	}
 
 	// Methods will be added to .prototype property
+	// Also called Instance methods
 	calcAge() {
 		console.log(2024 - this.birthYear);
 	}
@@ -133,19 +141,25 @@ class PersonCl {
 	get fullName() {
 		return this._fullName;
 	}
+
+	// Static methods
+	static hey() {
+		console.log("Hey there 👋🏻");
+		console.log(this);
+	}
 }
 
-const kiran = new PersonCl("Kiran Bansode", 1995);
-console.log(kiran);
-kiran.calcAge();
-console.log(kiran.age);
-console.log(kiran.__proto__ === PersonCl.prototype);
+const kiranCl = new PersonCl("Kiran Bansode", 1995);
+console.log(kiranCl);
+kiranCl.calcAge();
+console.log(kiranCl.age);
+console.log(kiranCl.__proto__ === PersonCl.prototype);
 
 // PersonCl.prototype.greet = function () {
 // 	console.log(`Hey ${this.firstName}`);
 // };
 
-kiran.greet();
+kiranCl.greet();
 
 const walt = new PersonCl("Walt Disney", 1995);
 
@@ -165,3 +179,5 @@ console.log(account.latest);
 account.latest = 50;
 console.log(account.movements);
 console.log(account.latest);
+
+PersonCl.hey();
