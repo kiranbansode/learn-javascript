@@ -1,37 +1,37 @@
 // "use strict";
 
-const Person = function (firstName, birthYear) {
-	this.firstName = firstName;
-	this.birthYear = birthYear;
+// const Person = function (firstName, birthYear) {
+// 	this.firstName = firstName;
+// 	this.birthYear = birthYear;
 
-	// Never do this
-	// this.calcAge = function () {
-	// 	console.log(2037 - this.birthYear);
-	// };
-};
+// 	// Never do this
+// 	// this.calcAge = function () {
+// 	// 	console.log(2037 - this.birthYear);
+// 	// };
+// };
 
-const kiran = new Person("Kiran", 1995);
-console.log(kiran);
+// const kiran = new Person("Kiran", 1995);
+// console.log(kiran);
 
-// 1. {} => New Empty Object is created
-// 2. function is called, 'this' gets assign to => {} Newly created empty object
-// 3. {} object is linked to prototype
-// 4. function automatically return {}
+// // 1. {} => New Empty Object is created
+// // 2. function is called, 'this' gets assign to => {} Newly created empty object
+// // 3. {} object is linked to prototype
+// // 4. function automatically return {}
 
-const meera = new Person("Meera", 2000);
-const jack = new Person("Jack", 1975);
-console.log(meera, jack);
+// const meera = new Person("Meera", 2000);
+// const jack = new Person("Jack", 1975);
+// console.log(meera, jack);
 
-console.log(kiran instanceof Person);
+// console.log(kiran instanceof Person);
 
-console.log(Person.prototype);
+// console.log(Person.prototype);
 
-Person.hey = function () {
-	console.log("Hey there 👋🏻");
-	console.log(this);
-};
+// Person.hey = function () {
+// 	console.log("Hey there 👋🏻");
+// 	console.log(this);
+// };
 
-Person.hey();
+// Person.hey();
 
 // // Prototypes
 // Person.prototype.calcAge = function () {
@@ -110,74 +110,97 @@ Person.hey();
 // class expession
 // const PersonCl = class {};
 
-// class declaration
-class PersonCl {
-	constructor(fullName, birthYear) {
-		this.fullName = fullName;
-		this.birthYear = birthYear;
-	}
+// // class declaration
+// class PersonCl {
+// 	constructor(fullName, birthYear) {
+// 		this.fullName = fullName;
+// 		this.birthYear = birthYear;
+// 	}
 
-	// Methods will be added to .prototype property
-	// Also called Instance methods
-	calcAge() {
-		console.log(2024 - this.birthYear);
-	}
+// 	// Methods will be added to .prototype property
+// 	// Also called Instance methods
+// 	calcAge() {
+// 		console.log(2024 - this.birthYear);
+// 	}
 
-	greet() {
-		console.log(`Hey ${this.fullName}`);
-	}
+// 	greet() {
+// 		console.log(`Hey ${this.fullName}`);
+// 	}
 
-	get age() {
-		return 2024 - this.birthYear;
-	}
+// 	get age() {
+// 		return 2024 - this.birthYear;
+// 	}
 
-	// Set a property that already exists
-	set fullName(name) {
-		console.log(name);
-		if (name.includes(" ")) this._fullName = name;
-		else alert(`${name} is not a full name!`);
-	}
+// 	// Set a property that already exists
+// 	set fullName(name) {
+// 		console.log(name);
+// 		if (name.includes(" ")) this._fullName = name;
+// 		else alert(`${name} is not a full name!`);
+// 	}
 
-	get fullName() {
-		return this._fullName;
-	}
+// 	get fullName() {
+// 		return this._fullName;
+// 	}
 
-	// Static methods
-	static hey() {
-		console.log("Hey there 👋🏻");
-		console.log(this);
-	}
-}
+// 	// Static methods
+// 	static hey() {
+// 		console.log("Hey there 👋🏻");
+// 		console.log(this);
+// 	}
+// }
 
-const kiranCl = new PersonCl("Kiran Bansode", 1995);
-console.log(kiranCl);
-kiranCl.calcAge();
-console.log(kiranCl.age);
-console.log(kiranCl.__proto__ === PersonCl.prototype);
+// const kiranCl = new PersonCl("Kiran Bansode", 1995);
+// console.log(kiranCl);
+// kiranCl.calcAge();
+// console.log(kiranCl.age);
+// console.log(kiranCl.__proto__ === PersonCl.prototype);
 
-// PersonCl.prototype.greet = function () {
-// 	console.log(`Hey ${this.firstName}`);
+// // PersonCl.prototype.greet = function () {
+// // 	console.log(`Hey ${this.firstName}`);
+// // };
+
+// kiranCl.greet();
+
+// const walt = new PersonCl("Walt Disney", 1995);
+
+// const account = {
+// 	owner: "kiran",
+// 	movements: [200, 530, 120, 300],
+// 	get latest() {
+// 		return this.movements.slice(-1).pop();
+// 	},
+
+// 	set latest(mov) {
+// 		this.movements.push(mov);
+// 	},
 // };
 
-kiranCl.greet();
+// console.log(account.latest);
+// account.latest = 50;
+// console.log(account.movements);
+// console.log(account.latest);
 
-const walt = new PersonCl("Walt Disney", 1995);
+// PersonCl.hey();
 
-const account = {
-	owner: "kiran",
-	movements: [200, 530, 120, 300],
-	get latest() {
-		return this.movements.slice(-1).pop();
+const PersonProto = {
+	calcAge() {
+		console.log(2024 - this.birthYear);
 	},
 
-	set latest(mov) {
-		this.movements.push(mov);
+	init(firstName, birthYear) {
+		this.firstName = firstName;
+		this.birthYear = birthYear;
 	},
 };
 
-console.log(account.latest);
-account.latest = 50;
-console.log(account.movements);
-console.log(account.latest);
+const steven = Object.create(PersonProto);
+console.log(steven);
+steven.name = "Steven";
+steven.birthYear = 2002;
+steven.calcAge();
 
-PersonCl.hey();
+console.log(steven.__proto__ == PersonProto);
+
+const sarah = Object.create(PersonProto);
+sarah.init("Sarah", 1979);
+sarah.calcAge();
