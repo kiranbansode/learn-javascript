@@ -439,16 +439,20 @@ class Account {
 
 	deposit(val) {
 		this.#movements.push(val);
+		return this;
 	}
 
 	withdraw(val) {
 		this.deposit(-val);
+		return this;
 	}
 
 	requestLoan(val) {
-		if (this.#approveLoan(val)) {
+		// if (this.#approveLoan(val)) {
+		if (this._approveLoan(val)) {
 			this.deposit(val);
 			console.log("Loan approved");
+			return this;
 		}
 	}
 
@@ -457,7 +461,8 @@ class Account {
 	}
 
 	// 4. Private Methods
-	#approveLoan(val) {
+	// #approveLoan;
+	_approveLoan(val) {
 		return true;
 	}
 }
@@ -470,10 +475,17 @@ acc1.requestLoan(1000);
 console.log(acc1.getMovements());
 
 console.log(acc1);
+Account.helper();
 
+// acc1.helper(); // Not Work
 // acc1.#approveLoan(1000);
 // console.log(acc1.#pin);
 // console.log(acc1.#movements);
 
-Account.helper();
-// acc1.helper(); // Not Work
+// Chaining
+try {
+	acc1.deposit(300).deposit(500).withdraw(35).requestLoan(25000).withdraw(4000);
+} catch (error) {
+	console.log(error);
+}
+console.log(acc1.getMovements());
