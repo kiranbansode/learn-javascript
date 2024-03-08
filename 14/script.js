@@ -242,37 +242,77 @@
 
 /* ----------------------------------- End ---------------------------------- */
 
-const Person = function (firstName, birthYear) {
-	this.firstName = firstName;
-	this.birthYear = birthYear;
+// const Person = function (firstName, birthYear) {
+// 	this.firstName = firstName;
+// 	this.birthYear = birthYear;
+// };
+
+// Person.prototype.calcAge = function () {
+// 	console.log(2024 - this.birthYear);
+// };
+
+// const Student = function (firstName, birthYear, course) {
+// 	Person.call(this, firstName, birthYear);
+// 	this.course = course;
+// };
+
+// // Linking prototype
+// Student.prototype = Object.create(Person.prototype);
+
+// Student.prototype.introduce = function () {
+// 	console.log(`My name is ${this.firstName} nad I study ${this.course}`);
+// };
+
+// const mike = new Student("Mike", 2020, "Computer Science");
+// mike.introduce();
+// mike.calcAge();
+
+// console.log(mike.__proto__);
+// console.log(mike.__proto__.__proto__);
+
+// console.log(mike instanceof Student);
+// console.log(mike instanceof Person);
+// console.log(mike instanceof Object);
+
+// Student.prototype.constructor = Student;
+// console.dir(Student.prototype.constructor);
+
+/* --------------------------- Coding Challenge #3 -------------------------- */
+const Car = function (make, speed) {
+	this.make = make;
+	this.speed = speed;
 };
 
-Person.prototype.calcAge = function () {
-	console.log(2024 - this.birthYear);
+Car.prototype.accelerate = function () {
+	this.speed += 10;
+	console.log(`${this.make} is going at ${this.speed} km/h`);
 };
 
-const Student = function (firstName, birthYear, course) {
-	Person.call(this, firstName, birthYear);
-	this.course = course;
+Car.prototype.brake = function () {
+	this.speed -= 5;
+	console.log(`${this.make} is going at ${this.speed} km/h`);
 };
 
-// Linking prototype
-Student.prototype = Object.create(Person.prototype);
-
-Student.prototype.introduce = function () {
-	console.log(`My name is ${this.firstName} nad I study ${this.course}`);
+const EV = function (make, speed, charge) {
+	Car.call(this, make, speed);
+	this.charge = charge;
 };
 
-const mike = new Student("Mike", 2020, "Computer Science");
-mike.introduce();
-mike.calcAge();
+// Link the prototype
+EV.prototype = Object.create(Car.prototype);
 
-console.log(mike.__proto__);
-console.log(mike.__proto__.__proto__);
+EV.prototype.chargeBattery = function (chargeTo) {
+	this.charge = chargeTo;
+};
 
-console.log(mike instanceof Student);
-console.log(mike instanceof Person);
-console.log(mike instanceof Object);
+EV.prototype.accelerate = function () {
+	this.speed += 20;
+	this.charge--;
+	console.log(`${this.make} is going at ${this.speed} km/h, with a charge of ${this.charge}`);
+};
 
-Student.prototype.constructor = Student;
-console.dir(Student.prototype.constructor);
+const tesla = new EV("Tesla", 120, 23);
+tesla.chargeBattery(90);
+console.log(tesla);
+tesla.brake();
+tesla.accelerate();
