@@ -3,6 +3,10 @@
 const btn = document.querySelector(".btn-country");
 const countriesContainer = document.querySelector(".countries");
 
+const renderError = function (msg) {
+	countriesContainer.insertAdjacentText("beforeend", msg);
+};
+
 const renderCountry = function (data, className = "") {
 	const html = `
   <article class="country ${className}">
@@ -17,7 +21,6 @@ const renderCountry = function (data, className = "") {
 </article>`;
 
 	countriesContainer.insertAdjacentHTML("beforeend", html);
-	countriesContainer.style.opacity = "1";
 };
 
 // const getCountryAndNeighbour = function (country) {
@@ -93,7 +96,18 @@ const getCountryData = function (country) {
 			return fetch(`https://restcountries.com/v2/alpha/${neighbour}`);
 		})
 		.then((response) => response.json())
-		.then((data) => renderCountry(data, "neighbour"));
+		.then((data) => renderCountry(data, "neighbour"))
+		.catch((error) => {
+			console.error(`${error} 🔥🔥🔥`);
+			renderError(`Something went wrong 🔥🔥🔥 ${error.message}. Try Again!`);
+		})
+		.finally(() => {
+			countriesContainer.style.opacity = "1";
+		});
 };
 
-getCountryData("bharat");
+btn.addEventListener("click", () => {
+	getCountryData("bharat");
+});
+
+getCountryData("yeloowo");
