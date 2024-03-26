@@ -1,29 +1,29 @@
 "use strict";
 
-const btn = document.querySelector(".btn-country");
-const countriesContainer = document.querySelector(".countries");
+// const btn = document.querySelector(".btn-country");
+// const countriesContainer = document.querySelector(".countries");
 
-const renderError = function (msg) {
-	countriesContainer.insertAdjacentText("beforeend", msg);
-	countriesContainer.style.opacity = "1";
-};
+// const renderError = function (msg) {
+// 	countriesContainer.insertAdjacentText("beforeend", msg);
+// 	countriesContainer.style.opacity = "1";
+// };
 
-const renderCountry = function (data, className = "") {
-	const html = `
-  <article class="country ${className}">
-  <img class="country__img" src="${data.flag}" />
-  <div class="country__data">
-    <h3 class="country__name">${data.name}</h3>
-    <h4 class="country__region">${data.region}</h4>
-    <p class="country__row"><span>👫</span>${(+data.population / 1000000).toFixed(1)}</p>
-    <p class="country__row"><span>🗣️</span>${data.languages[0].name}</p>
-    <p class="country__row"><span>💰</span>${data.currencies[0].name}</p>
-  </div>
-</article>`;
+// const renderCountry = function (data, className = "") {
+// 	const html = `
+//   <article class="country ${className}">
+//   <img class="country__img" src="${data.flag}" />
+//   <div class="country__data">
+//     <h3 class="country__name">${data.name}</h3>
+//     <h4 class="country__region">${data.region}</h4>
+//     <p class="country__row"><span>👫</span>${(+data.population / 1000000).toFixed(1)}</p>
+//     <p class="country__row"><span>🗣️</span>${data.languages[0].name}</p>
+//     <p class="country__row"><span>💰</span>${data.currencies[0].name}</p>
+//   </div>
+// </article>`;
 
-	countriesContainer.insertAdjacentHTML("beforeend", html);
-	countriesContainer.style.opacity = "1";
-};
+// 	countriesContainer.insertAdjacentHTML("beforeend", html);
+// 	countriesContainer.style.opacity = "1";
+// };
 
 // const getCountryAndNeighbour = function (country) {
 // 	const request = new XMLHttpRequest();
@@ -83,15 +83,15 @@ const renderCountry = function (data, className = "") {
 // 		});
 // };
 
-const getJSON = function (url, errorMsg = "Something went wrong!") {
-	return fetch(url).then((response) => {
-		if (!response.ok) {
-			throw new Error(`${errorMsg} (${response.status})`);
-		}
+// const getJSON = function (url, errorMsg = "Something went wrong!") {
+// 	return fetch(url).then((response) => {
+// 		if (!response.ok) {
+// 			throw new Error(`${errorMsg} (${response.status})`);
+// 		}
 
-		return response.json();
-	});
-};
+// 		return response.json();
+// 	});
+// };
 
 // const getCountryData = function (country) {
 // 	// Country 1
@@ -214,7 +214,7 @@ const getJSON = function (url, errorMsg = "Something went wrong!") {
 // lotteryPromise.then((res) => console.log(res)).catch((err) => console.error(err));
 
 // // Promisifying setTimeout
-// const wait = (seconds) => new Promise((resolve) => setTimeout(resolve, seconds * 1000));
+const wait = (seconds) => new Promise((resolve) => setTimeout(resolve, seconds * 1000));
 
 // wait(2)
 // 	.then(() => {
@@ -279,7 +279,7 @@ const getJSON = function (url, errorMsg = "Something went wrong!") {
 
 // btn.addEventListener("click", whereAmI);
 
-// const imgContainer = document.querySelector(".images");
+const imgContainer = document.querySelector(".images");
 
 // const createImage = function (imgPath) {
 // 	return new Promise(function (resolve, reject) {
@@ -411,34 +411,103 @@ const getJSON = function (url, errorMsg = "Something went wrong!") {
 // getCountries("russia", "bharat", "japan");
 
 // Promise.race
-(async function () {
-	const res = await Promise.race([
-		getJSON(`https://restcountries.com/v2/name/italy`),
-		getJSON(`https://restcountries.com/v2/name/bharat`),
-		getJSON(`https://restcountries.com/v2/name/japan`),
-	]);
+// (async function () {
+// 	const res = await Promise.race([
+// 		getJSON(`https://restcountries.com/v2/name/italy`),
+// 		getJSON(`https://restcountries.com/v2/name/bharat`),
+// 		getJSON(`https://restcountries.com/v2/name/japan`),
+// 	]);
 
-	console.log(res[0]);
-})();
+// 	console.log(res[0]);
+// })();
 
-const timeout = function (sec) {
-	return new Promise(function (_, reject) {
-		setTimeout(() => {
-			reject(new Error("Request took too"));
-		}, sec * 1000);
+// const timeout = function (sec) {
+// 	return new Promise(function (_, reject) {
+// 		setTimeout(() => {
+// 			reject(new Error("Request took too"));
+// 		}, sec * 1000);
+// 	});
+// };
+
+// Promise.race([getJSON(`https://restcountries.com/v2/name/japan`), timeout(5)])
+// 	.then((res) => console.log(res[0]))
+// 	.catch((err) => err);
+
+// // Promise.allSettled
+// Promise.allSettled([Promise.resolve("Success"), Promise.reject("Error"), Promise.resolve("Another Success")])
+// 	.then((res) => console.log(res))
+// 	.catch((err) => err);
+
+// // Promise.any[ES2021]
+// Promise.any([Promise.resolve("Success"), Promise.reject("Error"), Promise.resolve("Another Success")])
+// 	.then((res) => console.log(res))
+// 	.catch((err) => err);
+
+const createImage = function (imgPath) {
+	return new Promise(function (resolve, reject) {
+		const img = document.createElement("img");
+		img.src = imgPath;
+
+		img.addEventListener("load", function () {
+			imgContainer.append(img);
+			resolve(img);
+		});
+
+		img.addEventListener("error", function () {
+			reject(new Error("Image not found"));
+		});
 	});
 };
 
-Promise.race([getJSON(`https://restcountries.com/v2/name/japan`), timeout(5)])
-	.then((res) => console.log(res[0]))
-	.catch((err) => err);
+let currentImg;
 
-// Promise.allSettled
-Promise.allSettled([Promise.resolve("Success"), Promise.reject("Error"), Promise.resolve("Another Success")])
-	.then((res) => console.log(res))
-	.catch((err) => err);
+// createImage("img/img-1.jpg")
+// 	.then((img) => {
+// 		currentImg = img;
+// 		console.log("Image 1 loaded");
+// 		return wait(2);
+// 	})
+// 	.then(() => {
+// 		currentImg.style.display = "none";
+// 		return createImage("img/img-2.jpg");
+// 	})
+// 	.then((img) => {
+// 		currentImg = img;
+// 		console.log("Image 2 loaded");
+// 		return wait(2);
+// 	})
+// 	.then(() => {
+// 		currentImg.style.display = "none";
+// 	})
+// 	.catch((err) => console.error(err));
 
-// Promise.any[ES2021]
-Promise.any([Promise.resolve("Success"), Promise.reject("Error"), Promise.resolve("Another Success")])
-	.then((res) => console.log(res))
-	.catch((err) => err);
+const loadNPause = async function () {
+	try {
+		// Load image 1
+		let img = await createImage("img/img-1.jpg");
+		console.log(`Image 1 loaded`);
+		await wait(2);
+		img.style.display = "none";
+
+		img = await createImage("img/img-2.jpg");
+		console.log(`Image 2 loaded`);
+		await wait(2);
+		img.style.display = "none";
+	} catch (err) {
+		console.log(err);
+	}
+};
+
+loadNPause();
+
+const loadAll = async function (imgArr) {
+	try {
+		const imgsEl = await Promise.all(imgArr.map(async (img) => await createImage(img)));
+		console.log(imgsEl);
+		imgsEl.forEach((img) => img.classList.add("parallel"));
+	} catch (error) {
+		console.log(error);
+	}
+};
+
+loadAll(["img/img-1.jpg", "img/img-2.jpg", "img/img-3.jpg"]);
