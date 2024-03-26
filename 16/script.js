@@ -390,22 +390,55 @@ const getJSON = function (url, errorMsg = "Something went wrong!") {
 // 	console.log("3: Finished getting location");
 // })();
 
-const getCountries = async function (c1, c2, c3) {
-	try {
-		// const [data1] = await getJSON(`https://restcountries.com/v2/name/${c1}`);
-		// const [data2] = await getJSON(`https://restcountries.com/v2/name/${c2}`);
-		// const [data3] = await getJSON(`https://restcountries.com/v2/name/${c3}`);
+// const getCountries = async function (c1, c2, c3) {
+// 	try {
+// 		// const [data1] = await getJSON(`https://restcountries.com/v2/name/${c1}`);
+// 		// const [data2] = await getJSON(`https://restcountries.com/v2/name/${c2}`);
+// 		// const [data3] = await getJSON(`https://restcountries.com/v2/name/${c3}`);
 
-		const data = await Promise.all([
-			getJSON(`https://restcountries.com/v2/name/${c1}`),
-			getJSON(`https://restcountries.com/v2/name/${c2}`),
-			getJSON(`https://restcountries.com/v2/name/${c3}`),
-		]);
+// 		const data = await Promise.all([
+// 			getJSON(`https://restcountries.com/v2/name/${c1}`),
+// 			getJSON(`https://restcountries.com/v2/name/${c2}`),
+// 			getJSON(`https://restcountries.com/v2/name/${c3}`),
+// 		]);
 
-		console.log(data.map((d) => d[0].capital));
-	} catch (error) {
-		console.error(err);
-	}
+// 		console.log(data.map((d) => d[0].capital));
+// 	} catch (error) {
+// 		console.error(err);
+// 	}
+// };
+
+// getCountries("russia", "bharat", "japan");
+
+// Promise.race
+(async function () {
+	const res = await Promise.race([
+		getJSON(`https://restcountries.com/v2/name/italy`),
+		getJSON(`https://restcountries.com/v2/name/bharat`),
+		getJSON(`https://restcountries.com/v2/name/japan`),
+	]);
+
+	console.log(res[0]);
+})();
+
+const timeout = function (sec) {
+	return new Promise(function (_, reject) {
+		setTimeout(() => {
+			reject(new Error("Request took too"));
+		}, sec * 1000);
+	});
 };
 
-getCountries("russia", "bharat", "japan");
+Promise.race([getJSON(`https://restcountries.com/v2/name/japan`), timeout(5)])
+	.then((res) => console.log(res[0]))
+	.catch((err) => err);
+
+// Promise.allSettled
+Promise.allSettled([Promise.resolve("Success"), Promise.reject("Error"), Promise.resolve("Another Success")])
+	.then((res) => console.log(res))
+	.catch((err) => err);
+
+// Promise.any[ES2021]
+Promise.any([Promise.resolve("Success"), Promise.reject("Error"), Promise.resolve("Another Success")])
+	.then((res) => console.log(res))
+	.catch((err) => err);
