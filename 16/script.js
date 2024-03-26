@@ -83,15 +83,15 @@ const renderCountry = function (data, className = "") {
 // 		});
 // };
 
-// const getJSON = function (url, errorMsg = "Something went wrong!") {
-// 	return fetch(url).then((response) => {
-// 		if (!response.ok) {
-// 			throw new Error(`${errorMsg} (${response.status})`);
-// 		}
+const getJSON = function (url, errorMsg = "Something went wrong!") {
+	return fetch(url).then((response) => {
+		if (!response.ok) {
+			throw new Error(`${errorMsg} (${response.status})`);
+		}
 
-// 		return response.json();
-// 	});
-// };
+		return response.json();
+	});
+};
 
 // const getCountryData = function (country) {
 // 	// Country 1
@@ -319,52 +319,52 @@ const renderCountry = function (data, className = "") {
 // 	})
 // 	.catch((err) => console.error(err));
 
-const getPosition = function () {
-	return new Promise(function (resolve, reject) {
-		navigator.geolocation.getCurrentPosition(resolve, reject);
-	});
-};
+// const getPosition = function () {
+// 	return new Promise(function (resolve, reject) {
+// 		navigator.geolocation.getCurrentPosition(resolve, reject);
+// 	});
+// };
 
-// fetch(`https://restcountries.com/v2/name/${country}`).then(res => console.log(res));
+// // fetch(`https://restcountries.com/v2/name/${country}`).then(res => console.log(res));
 
-const whereAmI = async function () {
-	try {
-		// Geolocation
-		const pos = await getPosition();
-		const { latitude: lat, longitude: lng } = pos.coords;
+// const whereAmI = async function () {
+// 	try {
+// 		// Geolocation
+// 		const pos = await getPosition();
+// 		const { latitude: lat, longitude: lng } = pos.coords;
 
-		// Reverce Geocoding
-		const resGeo = await fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`);
-		if (!resGeo.ok) {
-			throw new Error("Problem getting location data");
-		}
+// 		// Reverce Geocoding
+// 		const resGeo = await fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`);
+// 		if (!resGeo.ok) {
+// 			throw new Error("Problem getting location data");
+// 		}
 
-		const dataGeo = await resGeo.json();
-		// console.log(dataGeo);
+// 		const dataGeo = await resGeo.json();
+// 		// console.log(dataGeo);
 
-		// Country Data
+// 		// Country Data
 
-		const res = await fetch(`https://restcountries.com/v2/name/${dataGeo.country}`);
+// 		const res = await fetch(`https://restcountries.com/v2/name/${dataGeo.country}`);
 
-		if (!res.ok) {
-			throw new Error("Problem getting country");
-		}
-		const data = await res.json();
+// 		if (!res.ok) {
+// 			throw new Error("Problem getting country");
+// 		}
+// 		const data = await res.json();
 
-		// console.log(data);
-		renderCountry(data[0]);
+// 		// console.log(data);
+// 		renderCountry(data[0]);
 
-		return `You are in ${dataGeo.city}, ${dataGeo.country}`;
-	} catch (error) {
-		// console.error(`${error} 😭`);
-		renderError(`${error.message}`);
+// 		return `You are in ${dataGeo.city}, ${dataGeo.country}`;
+// 	} catch (error) {
+// 		// console.error(`${error} 😭`);
+// 		renderError(`${error.message}`);
 
-		// Reject promise returned from async function
-		throw error;
-	}
-};
+// 		// Reject promise returned from async function
+// 		throw error;
+// 	}
+// };
 
-console.log("1: Will get location");
+// console.log("1: Will get location");
 // const city = whereAmI();
 // console.log(city);
 
@@ -379,13 +379,33 @@ console.log("1: Will get location");
 // 		console.log("3: Finished getting location");
 // 	});
 
-(async function () {
-	try {
-		const city = await whereAmI();
-		console.log(`2: ${city}`);
-	} catch (error) {
-		console.error(`2: ${error.message}`);
-	}
+// (async function () {
+// 	try {
+// 		const city = await whereAmI();
+// 		console.log(`2: ${city}`);
+// 	} catch (error) {
+// 		console.error(`2: ${error.message}`);
+// 	}
 
-	console.log("3: Finished getting location");
-})();
+// 	console.log("3: Finished getting location");
+// })();
+
+const getCountries = async function (c1, c2, c3) {
+	try {
+		// const [data1] = await getJSON(`https://restcountries.com/v2/name/${c1}`);
+		// const [data2] = await getJSON(`https://restcountries.com/v2/name/${c2}`);
+		// const [data3] = await getJSON(`https://restcountries.com/v2/name/${c3}`);
+
+		const data = await Promise.all([
+			getJSON(`https://restcountries.com/v2/name/${c1}`),
+			getJSON(`https://restcountries.com/v2/name/${c2}`),
+			getJSON(`https://restcountries.com/v2/name/${c3}`),
+		]);
+
+		console.log(data.map((d) => d[0].capital));
+	} catch (error) {
+		console.error(err);
+	}
+};
+
+getCountries("russia", "bharat", "japan");
