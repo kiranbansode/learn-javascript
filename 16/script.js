@@ -340,7 +340,7 @@ const whereAmI = async function () {
 		}
 
 		const dataGeo = await resGeo.json();
-		console.log(dataGeo);
+		// console.log(dataGeo);
 
 		// Country Data
 
@@ -351,18 +351,41 @@ const whereAmI = async function () {
 		}
 		const data = await res.json();
 
-		console.log(data);
+		// console.log(data);
 		renderCountry(data[0]);
+
+		return `You are in ${dataGeo.city}, ${dataGeo.country}`;
 	} catch (error) {
-		console.error(`${error} 😭`);
+		// console.error(`${error} 😭`);
 		renderError(`${error.message}`);
+
+		// Reject promise returned from async function
+		throw error;
 	}
 };
 
-whereAmI();
-whereAmI();
-whereAmI();
-whereAmI();
-whereAmI();
-whereAmI();
-console.log("First");
+console.log("1: Will get location");
+// const city = whereAmI();
+// console.log(city);
+
+// whereAmI()
+// 	.then((city) => {
+// 		console.log(`2: ${city}`);
+// 	})
+// 	.catch((err) => {
+// 		console.error(`2: ${err.message}`);
+// 	})
+// 	.finally(() => {
+// 		console.log("3: Finished getting location");
+// 	});
+
+(async function () {
+	try {
+		const city = await whereAmI();
+		console.log(`2: ${city}`);
+	} catch (error) {
+		console.error(`2: ${error.message}`);
+	}
+
+	console.log("3: Finished getting location");
+})();
